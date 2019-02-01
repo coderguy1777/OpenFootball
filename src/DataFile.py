@@ -85,14 +85,9 @@ for i4 in teamrosterkeysRedskins:
 
 # NFC West data reading.
 ######################################
-<<<<<<< HEAD
-# Reading of data for the Los Angeles Rams Roster
-df5 = pd.read_csv("Data/NFCDB/NFCWestDB/LARamsDB.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
-=======
-
 # Reading of data for the Los Angeles Rams Roster
 df5 = pd.read_csv("Data/NFCDB/NFCWestDB/LARamsDB.csv", encoding="latin-1", name=['Name', 'Position', 'Team', 'Position > 1'])
->>>>>>> a963aaaa1151d1ca893da7e3afd3fccedf8f6ba5
+
 teamrosterLARams = []
 teamrosterkeysLARams = []
 count5 = 0
@@ -105,14 +100,11 @@ positionsLARams = []
 for pos5 in df5['Position']:
     positionsLARams.append(pos5)
 
-<<<<<<< HEAD
 teamvallarams = "Los Angeles Rams"
 teamvalues.append(teamvallarams)
 teamdiclarams = {}
 for i5 in teamrosterkeysLARams:
     teamdiclarams = {teamrosterkeysLARams[i5 - 1]: teamrosterLARams[i5 - 1]}
-=======
 
 teamvallarams = "Los Angeles Rams"
 teamvalues.append(teamvallarams)
->>>>>>> a963aaaa1151d1ca893da7e3afd3fccedf8f6ba5
