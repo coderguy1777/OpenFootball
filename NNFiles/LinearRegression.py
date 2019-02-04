@@ -46,11 +46,7 @@ class LinearRegression:
         return self.b0value
 
     def yhat(self, x):
-        li1 = []
         eq = self.b0value + self.b1value * x
-        li1.append(eq)
-        li2 = []
-        li2.append(x)
         print(eq)
         plt.plot(eq, x)
         return eq
