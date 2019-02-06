@@ -1,24 +1,18 @@
 import tensorflow as tf
-import matplotlib.pyplot as plt
-import cv2 as opencv
 import numpy as np
-from NNFiles.LinearRegression import LinearRegression
+import cv2
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn import *
 
-data1 = []
-data2 = []
-for i in range(7):
-    data1.append(np.random.randint(1, 90, size=20))
-for i2 in range(7):
-    data2.append(np.random.randn(20))
-
-
-clf = LinearRegression(data1, data2)
-clf.b1val()
-clf.b1finaleq()
-clf.b0val()
-clf.linearregressioneq()
-
-
-li2 = []
-for i3 in data1:
-    clf.yhat(i3)
+df = pd.read_csv("Testdata.csv", encoding="latin-1", index_col=False, header=0, names=['Type1', 'Type2'])
+x = df['Type1'].values
+y = df['Type2'].values
+regr = linear_model.LinearRegression()
+x = x.reshape(len(x), 1)
+y = y.reshape(len(y), 1)
+regr.fit(x, y)
+inputsaxisypred = regr.predict(x)
+plt.scatter(x, y, color='red')
+plt.plot(x, regr.predict(x), label='test', color='blue')
+plt.show()
