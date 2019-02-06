@@ -47,8 +47,10 @@ class LinearRegression:
 
     def yhat(self, x):
         eq = self.b0value + self.b1value * x
-        print(eq)
+        plt.plot(eq, x, 'ro', label="Predictions")
         plt.plot(eq, x)
+        plt.legend()
+        plt.show()
         return eq
 
     def linearregressioneq(self):
