@@ -1,4 +1,6 @@
+import clf as clf
 import numpy
+import sklearn
 import pandas as pd
 
 # Dallas Cowboys Dataset Roster
@@ -120,3 +122,10 @@ positionsSeattleSeahawks = []
 for pos6 in df6['Position']:
     positionsSeattleSeahawks.append(pos6)
 
+teamvalSeattleSeahawks = "Seattle Seahawks";
+teamvalues.append(teamvalSeattleSeahawks)
+teamdicSeattleSeahawks = {}
+for i6 in teamrosterkeysSeattleSeahawks:
+    teamdicSeattleSeahawks = {teamrosterkeysSeattleSeahawks[i6-1]: teamrosterSeattleSeahawks[i6 - 1]}
+
+# Arizona Cardinals Data Reading

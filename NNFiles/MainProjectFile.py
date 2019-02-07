@@ -1,9 +1,7 @@
-import tensorflow as tf
-import numpy as np
-import cv2
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn import *
+from DataInputs import DataFileLoop
 
 df = pd.read_csv("Testdata.csv", encoding="latin-1", index_col=False, header=0, names=['Type1', 'Type2'])
 x = df['Type1'].values
@@ -16,3 +14,11 @@ inputsaxisypred = regr.predict(x)
 plt.scatter(x, y, color='red')
 plt.plot(x, regr.predict(x), label='test', color='blue')
 plt.show()
+filelooper = DataFileLoop.DataLoop()
+
+filenamelist = []
+filenamelist.append('NetworkData/output-onlinerandomtools.csv')
+filenamelist.append('NetworkData/testfile.csv')
+
+for fileval in filenamelist:
+    filelooper.fileloop(fileval)
