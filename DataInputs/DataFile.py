@@ -1,4 +1,3 @@
-import clf as clf
 import numpy
 import sklearn
 import pandas as pd
@@ -129,3 +128,44 @@ for i6 in teamrosterkeysSeattleSeahawks:
     teamdicSeattleSeahawks = {teamrosterkeysSeattleSeahawks[i6-1]: teamrosterSeattleSeahawks[i6 - 1]}
 
 # Arizona Cardinals Data Reading
+df7 = pd.read_csv("Data/NFCDB/NFCWestDB/AirzonaCardinalsDB.csv", encoding="latin-1", names=['Name','Position', 'Team', 'Position > 1'])
+teamrosterAirzonaCardinals = []
+teamrosterkeyValsAirzonaCardinals = []
+count7 = 0
+for name in df7['Name']:
+    teamrosterAirzonaCardinals.append(name)
+    count7 = count7 + 1
+    teamrosterkeyValsAirzonaCardinals.append(count7)
+
+positionsAirZonaCardinals = []
+for pos7 in df7['Position']:
+    positionsAirZonaCardinals.append(pos7)
+
+
+teamvalAirzonaCardinals = "Airzona Cardinals"
+teamvalues.append(teamvalAirzonaCardinals)
+teamdicAirzonaCardinals = {}
+for i7 in teamrosterkeyValsAirzonaCardinals:
+    teamdicAirzonaCardinals = {teamrosterkeyValsAirzonaCardinals[i7 - 1]: teamrosterAirzonaCardinals[i7 - 1]}
+
+
+# 49ers data reading for the team.
+df8 = pd.read_csv("Data/NFCDB/NFCWestDB/49ersDB.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamroster49ers = []
+count8 = 0
+teamrosterkeys49ers = []
+for name in df8['Name']:
+    teamroster49ers.append(name)
+    count8 = count8 + 1
+    teamrosterkeys49ers.append(count8)
+
+positions49ers = []
+for pos8 in df8['Positions']:
+    positions49ers.append(pos8)
+
+teamdic49ers = {}
+for i8 in teamrosterkeys49ers:
+    teamdic49ers = {teamrosterkeys49ers[i8 - 1]: teamrosterkeys49ers[i8 - 1]}
+
+# NFC South Data reading
+#########################################
