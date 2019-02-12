@@ -8,6 +8,3 @@ filenamelist = []
 filenamelist.append('NetworkData/output-onlinerandomtools.csv')
 filenamelist.append('NetworkData/testfile.csv')
 
-for fileval in filenamelist:
-    filelooper.fileloop(fileval)
-    filelooper.teammt()

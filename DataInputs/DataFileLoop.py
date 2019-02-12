@@ -26,7 +26,6 @@ class DataLoop:
             winpercentage.append(name3)
         return winlist, losslist, winpercentage
 
-
     def teammt(self):
         for i in self.filelist:
             if str(i)==str(i):

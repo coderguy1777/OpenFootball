@@ -212,3 +212,129 @@ teamdicFalcons = {}
 for i10 in teamrosterkeysAtlantaFalcons:
     teamdicFalcons = {teamrosterkeysAtlantaFalcons[i10 - 1]: teamrosterAtlantaFalcons[i10 - 1]}
 
+# Reading of data for the Panthers
+df11 = pd.read_csv("Data/NFCDB/NFCSouthDB/PanthersDB.csv", encoding='latin-1', names=['Name', 'Positions', 'Team', 'Positions > 1'])
+teamrosterPanthers = []
+count11 = 0
+teamrosterkeysPanthers = []
+for name in df11['Name']:
+    teamrosterPanthers.append(name)
+    count11 = count11 + 1
+    teamrosterkeysPanthers.append(count11)
+
+positionsPanthers = []
+for pos11 in df11['Position']:
+    positionsPanthers.append(pos11)
+
+teamvaluePanthers = "The Panthers"
+teamvalues.append(teamvaluePanthers)
+teamdicPanthers = {}
+for i11 in teamrosterkeysPanthers:
+    teamdicPanthers = {teamrosterkeysPanthers[i11 - 1]: teamrosterPanthers[i11 - 1]}
+
+# Reading of data for the Buccaneers in this case
+df12 = pd.read_csv('Data/NFCDB/NFCSouthDB/BuccaneersDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Positions > 1'])
+teamrosterBuccaneers = []
+count12 = 0
+teamrosterkeysBuccaneers = []
+for name in df12['Name']:
+    teamrosterBuccaneers.append(name)
+    count12 = count12 + 1
+    teamrosterkeysBuccaneers.append(count12)
+
+positionsBuccaneers = []
+for pos12 in df12['Positions']:
+    positionsBuccaneers.append(pos12)
+
+teamvalueBuccaneers = "The Buccaneers"
+teamvalues.append(teamvalueBuccaneers)
+teamdicBuccaneers = {}
+for i12 in teamrosterkeysBuccaneers:
+    teamdicBuccaneers = {teamrosterkeysBuccaneers[i12 - 1]: teamrosterBuccaneers[i12 - 1]}
+
+# Reading of Data for the NFC North Teams and there respective divisions.
+##################################################
+
+# Reading of data for the Green Bay Packers
+df13 = pd.read_csv('Data/NFCDB/NFCNorth/GreenbayPackersDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterGreenBayPackers = []
+count13 = 0
+teamrosterKeysGreenBayPackers = []
+for name in df13['Name']:
+    teamrosterGreenBayPackers.append(name)
+    count13 = count13 + 1
+    teamrosterKeysGreenBayPackers.append(count13)
+
+positionsGreenBayPackers = []
+for pos13 in df13['Position']:
+    positionsGreenBayPackers.append(pos13)
+
+teamvalueGreenBayPackers = "The Green Bay Packers"
+teamvalues.append(teamvalueGreenBayPackers)
+teamdicGreenBayPackers = {}
+
+for i13 in teamrosterKeysGreenBayPackers:
+    teamdicGreenBayPackers = {teamrosterKeysGreenBayPackers[i13 - 1]: teamrosterGreenBayPackers[i13 - 1]}
+
+# Reading of data for the Vikings in this case
+df14 = pd.read_csv('Data/NFCDB/NFCNorth/TheVikingsDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterVikings = []
+count14 = 0
+teamrosterKeysVikings = []
+for name in df14['Name']:
+    teamrosterVikings.append(name)
+    count14 = count14 + 1
+    teamrosterKeysVikings.append(count14)
+
+positionsVikings = []
+for pos14 in df14['Position']:
+    positionsVikings.append(pos14)
+
+teamvalueVikings = "The Vikings"
+teamvalues.append(teamvalueVikings)
+teamdicVikings = {}
+for i14 in teamrosterKeysVikings:
+    teamdicVikings = {teamrosterKeysVikings[i14 - 1]: teamrosterVikings[i14 - 1]}
+
+# Reading of data for the Bears
+df15 = pd.read_csv('Data/NFCDB/NFCNorth/TheBearsDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterBears = []
+count15 = 0
+teamrosterkeysBears = []
+for name in df15['Name']:
+    teamrosterBears.append(name)
+    count15 = count15 + 1
+    teamrosterkeysBears.append(count15)
+
+positionsBears = []
+for pos15 in df15['Position']:
+    positionsBears.append(pos15)
+
+
+teamvalueBears = "The Bears"
+teamvalues.append(teamvalueBears)
+teamdicBears = {}
+for i15 in teamrosterkeysBears:
+    teamdicBears = {teamrosterkeysBears[i15 - 1]: teamrosterBears[i15 - 1]}
+
+# Reading of data for the Lions in this case
+df16 = pd.read_csv('Data/NFCDB/NFCNorth/TheLionsDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterLions = []
+count16 = 0
+teamrosterKeysLions = []
+for name in df16['Name']:
+    teamrosterLions.append(name)
+    count16 = count16 + 1
+    teamrosterKeysLions.append(count16)
+
+positionsLions = []
+for pos16 in df16['Position']:
+    positionsLions.append(pos16)
+
+teamvalueLions = "The Lions"
+teamvalues.append(teamvalueLions)
+teamdicLions = {}
+for i16 in teamrosterKeysLions:
+    teamdicLions = {teamrosterKeysLions[i16 - 1]: teamrosterLions[i16 - 1]}
+
+# End of NFC Data Reading for all the NFC Teams.
