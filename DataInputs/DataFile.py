@@ -163,9 +163,52 @@ positions49ers = []
 for pos8 in df8['Positions']:
     positions49ers.append(pos8)
 
+teamval49ers = "The 49ers"
+teamvalues.append(teamval49ers)
 teamdic49ers = {}
 for i8 in teamrosterkeys49ers:
     teamdic49ers = {teamrosterkeys49ers[i8 - 1]: teamrosterkeys49ers[i8 - 1]}
 
 # NFC South Data reading
 #########################################
+
+# Saints data reading
+df9 = pd.read_csv("Data/NFCDB/NFCSouthDB/SaintsDB.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrostersaints = []
+count9 = 0
+teamrosterkeyssaints = []
+for name in df9['Name']:
+    teamrostersaints.append(name)
+    count9 = count9 + 1
+    teamrosterkeyssaints.append(count9)
+
+positionsSaints = []
+for pos8 in df9['Position']:
+    positionsSaints.append(pos8)
+
+teamvaluesaints = "The Saints"
+teamvalues.append(teamvaluesaints)
+teamdicsaints = {}
+for i9 in teamrosterkeyssaints:
+    teamdicsaints = {teamrosterkeyssaints[i9 - 1]: teamrostersaints[i9 - 1]}
+
+# Reading of data for Atlanta Falcons
+df10 = pd.read_csv("Data/NFCDB/NFCSouthDB/AtlantaFalconsDB.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterAtlantaFalcons = []
+teamrosterkeysAtlantaFalcons = []
+count10 = 0
+for name in df10['Name']:
+    teamrosterAtlantaFalcons.append(name)
+    count10 = count10 + 1
+    teamrosterkeysAtlantaFalcons.append(count10)
+
+positionsAtlantaFalcons = []
+for pos10 in df10['Positions']:
+    positionsAtlantaFalcons.append(pos10)
+
+teamvalueFalcons = "Atlanta Falcons"
+teamvalues.append(teamvalueFalcons)
+teamdicFalcons = {}
+for i10 in teamrosterkeysAtlantaFalcons:
+    teamdicFalcons = {teamrosterkeysAtlantaFalcons[i10 - 1]: teamrosterAtlantaFalcons[i10 - 1]}
+
