@@ -1,6 +1,7 @@
 import numpy
 import sklearn
 import pandas as pd
+from NNFiles import PlayerDataNetwork
 
 # Dallas Cowboys Dataset Roster
 df = pd.read_csv('Data/NFCDB/NFCEastDB/DallasCowboysDB.csv', encoding="latin-1", names=['Name', 'Position', 'Team', 'Positions > 1'])
@@ -19,10 +20,10 @@ for pos in df['Position']:
 teamvalcowboy = "Dallas Cowboys"
 teamvalues = []
 teamvalues.append(teamvalcowboy)
-teamdiccowboys = {}
-
-for i in teamrosterkeys:
-    teamdiccowboys = {teamrosterkeys[i - 1]: teamroster[i - 1]}
+teamroster.pop(0)
+positions.pop(0)
+sort1 = PlayerDataNetwork.PlayerNetwork(positions, teamroster, teamvalcowboy)
+sort1.mainnet()
 
 # Philadelphia Eagles Dataset Roster
 df2 = pd.read_csv('Data/NFCDB/NFCEastDB/PhildelphiaEaglesDB.csv', encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
@@ -40,9 +41,10 @@ for pos2 in df2['Position']:
 
 teamvaleagles = "Philadelphia Eagles"
 teamvalues.append(teamvaleagles)
-teamdiceagles = {}
-for i2 in teamrostereagleskeys:
-    teamdiceagles = {teamrostereagleskeys[i2 - 1]: teamrostereagles[i2 - 1]}
+positionseagles.pop(0)
+teamrostereagles.pop(0)
+sort2 = PlayerDataNetwork.PlayerNetwork(positionseagles, teamrostereagles, teamvaleagles)
+sort2.mainnet()
 
 # New York Giants Dataset Roster
 df3 = pd.read_csv('Data/NFCDB/NFCEastDB/NewYorkGiantsDB.csv', encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
@@ -58,12 +60,13 @@ positiongiants = []
 for pos3 in df3['Position']:
     positiongiants.append(pos3)
 
+positiongiants.pop(0)
+teamrostergiants.pop(0)
+
 teamvalgiants = "The New York Giants"
 teamvalues.append(teamvalgiants)
-teamdicgiants = {}
-for i3 in teamrostergiantskeys:
-    teamdicgiants = {teamrostergiantskeys[i3 - 1]: teamrostergiants[i3 - 1]}
-
+sort3 = PlayerDataNetwork.PlayerNetwork(positiongiants, teamrostergiants, teamvalgiants)
+sort3.mainnet()
 # Washington Redskins Dataset Roster
 df4 = pd.read_csv('Data/NFCDB/NFCEastDB/RedskinsDB.csv', encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrosterRedskins = []
@@ -80,9 +83,11 @@ for pos4 in df4['Position']:
 
 teamvalredskins = "Washington Redskins"
 teamvalues.append(teamvalredskins)
-teamdicredskins = {}
-for i4 in teamrosterkeysRedskins:
-    teamdicredskins = {teamrosterkeysRedskins[i4 - 1]: teamrosterRedskins[i4 - 1]}
+teamrosterRedskins.pop(0)
+positionsredskins.pop(0)
+
+sort4 = PlayerDataNetwork.PlayerNetwork(positionsredskins, teamrosterRedskins, teamvalredskins)
+sort4.mainnet()
 
 # NFC West data reading.
 ######################################
@@ -103,10 +108,10 @@ for pos5 in df5['Position']:
 
 teamvallarams = "Los Angeles Rams"
 teamvalues.append(teamvallarams)
-teamdiclarams = {}
-for i5 in teamrosterkeysLARams:
-    teamdiclarams = {teamrosterkeysLARams[i5 - 1]: teamrosterLARams[i5 - 1]}
-
+positionsLARams.pop(0)
+teamrosterLARams.pop(0)
+sort5 = PlayerDataNetwork.PlayerNetwork(positionsLARams, teamrosterLARams, teamvallarams)
+sort5.mainnet()
 # Reading of data for the Seattle Seahawks
 df6 = pd.read_csv("Data/NFCDB/NFCWestDB/SeattleSeahawksDB.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrosterSeattleSeahawks = []
@@ -121,12 +126,13 @@ positionsSeattleSeahawks = []
 for pos6 in df6['Position']:
     positionsSeattleSeahawks.append(pos6)
 
+positionsSeattleSeahawks.pop(0)
+teamrosterSeattleSeahawks.pop(0)
+
 teamvalSeattleSeahawks = "Seattle Seahawks";
 teamvalues.append(teamvalSeattleSeahawks)
-teamdicSeattleSeahawks = {}
-for i6 in teamrosterkeysSeattleSeahawks:
-    teamdicSeattleSeahawks = {teamrosterkeysSeattleSeahawks[i6-1]: teamrosterSeattleSeahawks[i6 - 1]}
-
+sort6 = PlayerDataNetwork.PlayerNetwork(positionsSeattleSeahawks, teamrosterSeattleSeahawks, teamvalSeattleSeahawks)
+sort6.mainnet()
 # Arizona Cardinals Data Reading
 df7 = pd.read_csv("Data/NFCDB/NFCWestDB/AirzonaCardinalsDB.csv", encoding="latin-1", names=['Name','Position', 'Team', 'Position > 1'])
 teamrosterAirzonaCardinals = []
@@ -160,7 +166,7 @@ for name in df8['Name']:
     teamrosterkeys49ers.append(count8)
 
 positions49ers = []
-for pos8 in df8['Positions']:
+for pos8 in df8['Position']:
     positions49ers.append(pos8)
 
 teamval49ers = "The 49ers"
@@ -203,7 +209,7 @@ for name in df10['Name']:
     teamrosterkeysAtlantaFalcons.append(count10)
 
 positionsAtlantaFalcons = []
-for pos10 in df10['Positions']:
+for pos10 in df10['Position']:
     positionsAtlantaFalcons.append(pos10)
 
 teamvalueFalcons = "Atlanta Falcons"
@@ -213,7 +219,7 @@ for i10 in teamrosterkeysAtlantaFalcons:
     teamdicFalcons = {teamrosterkeysAtlantaFalcons[i10 - 1]: teamrosterAtlantaFalcons[i10 - 1]}
 
 # Reading of data for the Panthers
-df11 = pd.read_csv("Data/NFCDB/NFCSouthDB/PanthersDB.csv", encoding='latin-1', names=['Name', 'Positions', 'Team', 'Positions > 1'])
+df11 = pd.read_csv("Data/NFCDB/NFCSouthDB/PanthersDB.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Positions > 1'])
 teamrosterPanthers = []
 count11 = 0
 teamrosterkeysPanthers = []
@@ -243,7 +249,7 @@ for name in df12['Name']:
     teamrosterkeysBuccaneers.append(count12)
 
 positionsBuccaneers = []
-for pos12 in df12['Positions']:
+for pos12 in df12['Position']:
     positionsBuccaneers.append(pos12)
 
 teamvalueBuccaneers = "The Buccaneers"
@@ -256,10 +262,11 @@ for i12 in teamrosterkeysBuccaneers:
 ##################################################
 
 # Reading of data for the Green Bay Packers
-df13 = pd.read_csv('Data/NFCDB/NFCNorth/GreenbayPackersDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+df13 = pd.read_csv('Data/NFCDB/NFCNorthDB/GreenbayPackersDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrosterGreenBayPackers = []
 count13 = 0
 teamrosterKeysGreenBayPackers = []
+
 for name in df13['Name']:
     teamrosterGreenBayPackers.append(name)
     count13 = count13 + 1
@@ -277,7 +284,7 @@ for i13 in teamrosterKeysGreenBayPackers:
     teamdicGreenBayPackers = {teamrosterKeysGreenBayPackers[i13 - 1]: teamrosterGreenBayPackers[i13 - 1]}
 
 # Reading of data for the Vikings in this case
-df14 = pd.read_csv('Data/NFCDB/NFCNorth/TheVikingsDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+df14 = pd.read_csv('Data/NFCDB/NFCNorthDB/TheVikingsDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrosterVikings = []
 count14 = 0
 teamrosterKeysVikings = []
@@ -297,7 +304,7 @@ for i14 in teamrosterKeysVikings:
     teamdicVikings = {teamrosterKeysVikings[i14 - 1]: teamrosterVikings[i14 - 1]}
 
 # Reading of data for the Bears
-df15 = pd.read_csv('Data/NFCDB/NFCNorth/TheBearsDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+df15 = pd.read_csv('Data/NFCDB/NFCNorthDB/TheBearsDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrosterBears = []
 count15 = 0
 teamrosterkeysBears = []
@@ -318,7 +325,7 @@ for i15 in teamrosterkeysBears:
     teamdicBears = {teamrosterkeysBears[i15 - 1]: teamrosterBears[i15 - 1]}
 
 # Reading of data for the Lions in this case
-df16 = pd.read_csv('Data/NFCDB/NFCNorth/TheLionsDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+df16 = pd.read_csv('Data/NFCDB/NFCNorthDB/TheLionsDB.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrosterLions = []
 count16 = 0
 teamrosterKeysLions = []
