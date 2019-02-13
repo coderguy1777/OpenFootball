@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import cv2 as opencv
-import DataFile
 from sklearn import *
 import matplotlib.pyplot as plt
 
@@ -23,10 +22,6 @@ class DataLoopTeamStats:
         y_predictions = linreg.predict(self.value2)
         plt.scatter(self.value1, self.value2, color='red')
         plt.plot(self.value1, x_predictions, label='Best Fit Line', color='black')
-        for teamval in DataFile.teamvalues:
-            if teamval == filename:
-                filename = teamval
-                self.fileloop(teamval)
 
         for winlossval in df['Wins']:
             self.teamdic = {}

@@ -337,4 +337,4 @@ teamdicLions = {}
 for i16 in teamrosterKeysLions:
     teamdicLions = {teamrosterKeysLions[i16 - 1]: teamrosterLions[i16 - 1]}
 
-# End of NFC Data Reading for all the NFC Teams.
+# End of NFC Data Reading for all the NFC Teams

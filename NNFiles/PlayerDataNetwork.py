@@ -1,40 +1,27 @@
-from sklearn import *
-import tensorflow as tf
-import pandas as pd
-import numpy as np
-
 class PlayerNetwork:
-    def __init__(self, playername, inputs, teamval):
-        self.playername = playername
+    def __init__(self, inputs, positions, teamname):
         self.dic = {}
-        self.teamval = teamval
         self.inputs = inputs
+        self.positions = positions
+        self.teamname = teamname
+        self.teamdb = {}
 
-    def sigmoid(self, x):
-        return 1 / np.exp(-x)
-
-    def sigmoidderivative(self, x):
-        return self.sigmoid(x)/(1 + self.sigmoid(x))**2
-
-    def relu(self, y):
-        return np.max(0, y)
-
-
-    def mainnet(self, teamvar):
+    def mainnet(self):
         playerteammap = []
-        for i in self.playername:
-            for x in self.inputs:
-                playerteammap.append(i)
-                self.dic = {i: x}
-                print(self.dic)
+        dic2 =  {}
+        print(str(self.teamname))
+        for (i, x) in enumerate(self.inputs):
+            self.dic = {x: self.positions[i]}
+            dic2 = {self.teamname: self.dic}
+            playerteammap.append(dic2)
 
-df = pd.read_csv('Testdata2.csv', encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
-
-teamplayers = []
-for name in df['Name']:
-    teamplayers.append(name)
-
-teamvalue = "Seattle Seahawks"
-clf = PlayerNetwork(df['Name'], df['Position'], teamvalue)
-clf.mainnet(teamvalue)
-
+        if self.teamname == 'Washington Redskins' or self.teamname == 'The Dallas Cowboys' or self.teamname == 'The Philadelphia Eagles' or self.teamname == 'The New York Giants':
+            divname = 'NFC East'
+            self.teamdb = {divname: list(playerteammap)}
+            print(f"{self.teamdb}")
+        if self.teamname == 'Seattle Seahawks' or self.teamname == 'Los Angeles Rams':
+            divnamewest = 'NFC West'
+            self.teamdb = {divnamewest: list(playerteammap)}
+            print(self.teamdb)
+            print('\n')
+        return self.teamdb, self.dic, dic2
