@@ -23,6 +23,9 @@ teamvalues.append(teamvalcowboy)
 teamroster.pop(0)
 positions.pop(0)
 sort1 = PlayerDataNetwork.PlayerNetwork(positions, teamroster, teamvalcowboy)
+print('NFC Teams')
+print('###########################')
+print('NFC East:')
 sort1.mainnet()
 
 # Philadelphia Eagles Dataset Roster
@@ -88,11 +91,12 @@ positionsredskins.pop(0)
 
 sort4 = PlayerDataNetwork.PlayerNetwork(positionsredskins, teamrosterRedskins, teamvalredskins)
 sort4.mainnet()
-
+print('--------------------------')
 # NFC West data reading.
 ######################################
 
 # Reading of data for the Los Angeles Rams Roster
+print('NFC West:')
 df5 = pd.read_csv("Data/NFCDB/NFCWestDB/LARamsDB.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrosterLARams = []
 teamrosterkeysLARams = []
@@ -133,6 +137,7 @@ teamvalSeattleSeahawks = "Seattle Seahawks";
 teamvalues.append(teamvalSeattleSeahawks)
 sort6 = PlayerDataNetwork.PlayerNetwork(positionsSeattleSeahawks, teamrosterSeattleSeahawks, teamvalSeattleSeahawks)
 sort6.mainnet()
+
 # Arizona Cardinals Data Reading
 df7 = pd.read_csv("Data/NFCDB/NFCWestDB/AirzonaCardinalsDB.csv", encoding="latin-1", names=['Name','Position', 'Team', 'Position > 1'])
 teamrosterAirzonaCardinals = []
@@ -177,7 +182,6 @@ for i8 in teamrosterkeys49ers:
 
 # NFC South Data reading
 #########################################
-
 # Saints data reading
 df9 = pd.read_csv("Data/NFCDB/NFCSouthDB/SaintsDB.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrostersaints = []
