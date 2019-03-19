@@ -117,3 +117,16 @@ teamrosterDolphins = []
 
 for name in df7['Name']:
     teamrosterDolphins.append(name)
+teamrosterDolphins.pop(0)
+
+positionsDolphins = []
+for pos7 in df7['Position']:
+    positionsDolphins.append(pos7)
+positionsDolphins.pop(0)
+
+teamValueDolphins = "The Miami Dolphins"
+teamvaluesAFC.append(teamValueDolphins)
+
+# Reading of data for the Buffalos in this case
+df8 = pd.read_csv("Data/AFCDB/AFCEast/TheBufflaos.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterBufflaos = []

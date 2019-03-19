@@ -4,8 +4,9 @@ import scrapy
 
 class PlayerscraperSpider(scrapy.Spider):
     name = 'playerscraper'
-    allowed_domains = ['pro-football-reference.com/years/2018/index.htm/']
-    start_urls = ['http://pro-football-reference.com/years/2018/index.htm/']
+    start_urls = ['https://www.giants.com/team/players-roster/']
 
     def parse(self, response):
-        pass
+        print(response.url)
+        print(response.css('a::text'))
+        print(response.css('data::text').decode('utf-8'))
