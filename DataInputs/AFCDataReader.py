@@ -130,3 +130,36 @@ teamvaluesAFC.append(teamValueDolphins)
 # Reading of data for the Buffalos in this case
 df8 = pd.read_csv("Data/AFCDB/AFCEast/TheBufflaos.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrosterBufflaos = []
+for name in df8['Name']:
+    teamrosterBufflaos.append(name)
+
+positionsBufflaos = []
+for pos8 in df8['Position']:
+    positionsBufflaos.append(pos8)
+
+teamValueBufflaos = "The Bufflaos"
+teamvaluesAFC.append(teamValueBufflaos)
+
+#########################################################
+# Reading of data for the AFC North
+########################################################
+
+
+# Reading of Data for the Baltimore Ravens
+df9 = pd.read_csv("Data/AFCDB/AFCNorth/TheBaltimoreRavens.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterRavens = []
+for name in df9['Name']:
+    teamrosterRavens.append(name)
+
+positionsRavens = []
+for pos9 in df9['Position']:
+    positionsRavens.append(pos9)
+
+teamvalueRavens = "The Baltimore Ravens"
+teamvaluesAFC.append(teamvalueRavens)
+
+# Reading of Data for the Pittsburgh Steelers
+df10 = pd.read_csv("Data/AFCDB/AFCNorth/ThePittsburghSteelers.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterSteelers = []
+for name in df10['Name']:
+    teamrosterSteelers.append(name)
