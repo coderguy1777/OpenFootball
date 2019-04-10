@@ -163,3 +163,57 @@ df10 = pd.read_csv("Data/AFCDB/AFCNorth/ThePittsburghSteelers.csv", encoding="la
 teamrosterSteelers = []
 for name in df10['Name']:
     teamrosterSteelers.append(name)
+
+positionsSteelers = []
+for pos9 in df10['Position']:
+    positionsSteelers.append(pos9)
+
+teamvalueSteelers = "The Pittsburgh Steelers"
+teamvaluesAFC.append(teamvalueSteelers)
+
+
+# Reading of Data for the Cleavland Browns
+df11 = pd.read_csv("Data/AFCDB/AFCNorth/TheClevlandBrowns.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterBrowns = []
+for name in df11['Name']:
+    teamrosterBrowns.append(name)
+
+positionsBrowns = []
+for pos11 in df11['Position']:
+    positionsBrowns.append(pos11)
+
+teamValueBrowns = "The Cleavland Browns"
+teamvaluesAFC.append(teamValueBrowns)
+
+# Reading of Data for the Cincinnati Bengals
+df12 = pd.read_csv("Data/AFCDB/AFCNorth/TheCleavlandBrowns.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterBengals = []
+for name in df12['Name']:
+    teamrosterBengals.append(name)
+
+positionsBengals = []
+for pos12 in df12['Position']:
+    positionsBengals.append(pos12)
+
+teamvalueBengals = "The Cincinnati Bengals"
+teamvaluesAFC.append(teamvalueBengals)
+
+##########################################################################################
+# Reading of data for the AFC South
+##########################################################################################
+
+# Reading of Data for the Houston Texans
+df13 = pd.read_csv("Data/AFCDB/AFCSouth/TheHoustonTexans.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterTexans = []
+for name in df13['Name']:
+    teamrosterTexans.append(name)
+
+positionsTexans = []
+for pos13 in df13['Position']:
+    positionsTexans.append(pos13)
+
+teamvalueTexans = "The Houston Texans"
+teamvaluesAFC.append(teamvalueTexans)
+
+# Reading of Data for the Tennessee titans
+df14 = pd.read_csv("Data/AFCDB/AFCSouth/TheTennesseeTitans.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
