@@ -3,7 +3,6 @@ import sklearn
 import pandas as pd
 import math
 import numpy as np
-from NNFiles import PlayerDataNetwork
 
 NFCEastLi = []
 NFCWestLi = []
@@ -25,19 +24,6 @@ for pos in df['Position']:
 teamvalcowboy = "Dallas Cowboys"
 teamvalues = []
 teamvalues.append(teamvalcowboy)
-teamroster.pop(0)
-positions.pop(0)
-testdic = {}
-for (i, x) in enumerate(teamroster):
-    print(x)
-    testdic[x] = positions[i]
-
-print(testdic)
-sort1 = PlayerDataNetwork.PlayerNetwork(testdic, teamvalcowboy)
-print('NFC Teams')
-print('###########################')
-print('NFC East:')
-sort1.datasort()
 
 # Philadelphia Eagles Dataset Roster
 df2 = pd.read_csv('Data/NFCDB/NFCEastDB/PhildelphiaEaglesDB.csv', encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
@@ -55,14 +41,6 @@ for pos2 in df2['Position']:
 
 teamvaleagles = "Philadelphia Eagles"
 teamvalues.append(teamvaleagles)
-positionseagles.pop(0)
-teamrostereagles.pop(0)
-testdic2 = {}
-for(xx, ii) in enumerate(teamrostereagles):
-    testdic2[ii] = positionseagles[xx]
-
-sort2 = PlayerDataNetwork.PlayerNetwork(testdic2, teamvaleagles)
-sort2.datasort()
 
 # New York Giants Dataset Roster
 df3 = pd.read_csv('Data/NFCDB/NFCEastDB/NewYorkGiantsDB.csv', encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
@@ -78,15 +56,8 @@ positiongiants = []
 for pos3 in df3['Position']:
     positiongiants.append(pos3)
 
-positiongiants.pop(0)
-teamrostergiants.pop(0)
-testdic3 = {}
-for(xxx, iii) in enumerate(teamrostergiants):
-    testdic3[iii] = positiongiants[xxx]
 teamvalgiants = "The New York Giants"
 teamvalues.append(teamvalgiants)
-sort3 = PlayerDataNetwork.PlayerNetwork(testdic3, teamvalgiants)
-sort3.datasort()
 
 # Washington Redskins Dataset Roster
 df4 = pd.read_csv('Data/NFCDB/NFCEastDB/RedskinsDB.csv', encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
@@ -100,38 +71,14 @@ for name in df4['Name']:
 
 positionsredskins = []
 for pos4 in df4['Position']:
-        positionsredskins.append(pos4)
+    positionsredskins.append(pos4)
 
 teamvalredskins = "Washington Redskins"
 teamvalues.append(teamvalredskins)
-teamrosterRedskins.pop(0)
-positionsredskins.pop(0)
-testdic4 = {}
-for (v, c) in enumerate(teamrosterRedskins):
-    testdic4[c] = positionsredskins[v]
-
-sort4 = PlayerDataNetwork.PlayerNetwork(testdic4, teamvalredskins)
-sort4.datasort()
-
-
-# Adding of teams to a list once the dictionaries are made in this case.
-NFCEastLi.append(sort1.datasort())
-NFCEastLi.append(sort2.datasort())
-NFCEastLi.append(sort3.datasort())
-NFCEastLi.append(sort4.datasort())
-
-for i in NFCEastLi:
-    print(str(i))
-i = (np.random.randint(0, 3))
-print("Random Team:")
-print(NFCEastLi.pop(i))
-
-print('--------------------------')
 # NFC West data reading.
 ######################################
 
 # Reading of data for the Los Angeles Rams Roster
-print('NFC West:')
 df5 = pd.read_csv("Data/NFCDB/NFCWestDB/LARamsDB.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
 teamrosterLARams = []
 teamrosterkeysLARams = []
@@ -147,13 +94,6 @@ for pos5 in df5['Position']:
 
 teamvallarams = "Los Angeles Rams"
 teamvalues.append(teamvallarams)
-positionsLARams.pop(0)
-teamrosterLARams.pop(0)
-testdic5 = {}
-for(g, bc) in enumerate(teamrosterLARams):
-    testdic5[bc] = positionsLARams[g]
-sort5 = PlayerDataNetwork.PlayerNetwork(testdic5, teamvallarams)
-sort5.datasort()
 
 # Reading of data for the Seattle Seahawks
 df6 = pd.read_csv("Data/NFCDB/NFCWestDB/SeattleSeahawksDB.csv", encoding="latin-1", names=['Name', 'Position', 'Team', 'Position > 1'])
@@ -169,17 +109,8 @@ positionsSeattleSeahawks = []
 for pos6 in df6['Position']:
     positionsSeattleSeahawks.append(pos6)
 
-positionsSeattleSeahawks.pop(0)
-teamrosterSeattleSeahawks.pop(0)
-
 teamvalSeattleSeahawks = "Seattle Seahawks";
 teamvalues.append(teamvalSeattleSeahawks)
-testdic6 = {}
-for (vc, vc3) in enumerate(teamrosterSeattleSeahawks):
-    testdic6[vc3] = positionsSeattleSeahawks[vc]
-
-sort6 = PlayerDataNetwork.PlayerNetwork(testdic6, teamvalSeattleSeahawks)
-sort6.datasort()
 
 # Arizona Cardinals Data Reading
 df7 = pd.read_csv("Data/NFCDB/NFCWestDB/AirzonaCardinalsDB.csv", encoding="latin-1", names=['Name','Position', 'Team', 'Position > 1'])
@@ -221,17 +152,6 @@ teamvalues.append(teamval49ers)
 teamdic49ers = {}
 for i8 in teamrosterkeys49ers:
     teamdic49ers = {teamrosterkeys49ers[i8 - 1]: teamrosterkeys49ers[i8 - 1]}
-
-# Adding of teams to a data sort for the NFC West:
-NFCWestLi.append(sort5.datasort())
-NFCWestLi.append(sort6.datasort())
-
-for v in NFCWestLi:
-    print(str(v))
-
-randvar = (np.random.randint(0, 2))
-print("Random Team:")
-print(NFCWestLi.pop(randvar))
 
 # NFC South Data reading
 #########################################
