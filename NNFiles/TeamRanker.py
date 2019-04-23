@@ -1,13 +1,10 @@
-import tensorflow as tf
-import numpy as np
-from NNFiles import PlayerClassifier
-import pandas as pd
 
 class TeamDivRanker:
-    def __init__(self, teamObj):
-        self.teamObj = teamObj
-        self.divisionDic = {}
-        self.teamSkill = 0
+    def __init__(self, playerskill, playerwl, teams):
+        self.playerskill = playerskill
+        self.playerwl = playerwl
+        self.teams = teams
+
 
     def divRanker(self):
         pass

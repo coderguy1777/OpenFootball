@@ -1,47 +1,34 @@
 import numpy as np
 import tensorflow as tf
-from NNFiles import PlayerClassifier
 import pandas as pd
+from NNFiles import BasePlayerSkills as bps
 
-class PlayerRanks:
-    def __init__(self, teamsize, team, playerNode, playerName, draftVar):
-        self.teamsize = teamsize
-        self.playerName = playerName
-        self.playerNode = playerNode
-        self.team = team
-        self.draftVar = draftVar
-        self.player = PlayerClassifier.PlayerWinClassifier(team=self.team, player=playerName, draftyear=self.draftVar)
-        self.playerNode = playerNode
-        self.playerStats = []
+class PlayerSkill:
+    def __init__(self, playername, downs, cintercepts, incintercepts, cpasses, incpasses, tpasses, tintercepts, cwk, cwl, TDc, TDinc, NTD):
+        self.playername = playername
+        self.downs = downs
+        self.cintercepts = cintercepts
+        self.incintercepts = incintercepts
+        self.cpasses = cpasses
+        self.incpasses = incpasses
+        self.tpasses = tpasses
+        self.tintercepts = tintercepts
+        self.cwk = cwk
+        self.cwl = cwl
+        self.TDc = TDc
+        self.TDinc = TDinc
+        self.NTD = NTD
+        self.playerskillval = 0
 
-    def playerSkill(self):
-        # for the ranking of players on the team
-        # that they are on
-        ranksum = []
+    def pskill(self):
+        interceptpc = bps.intrcptps(self.cintercepts, self.incintercepts, self.tintercepts)
+        passpc = bps.passpercent(self.cpasses, self.incpasses, self.tpasses)
+        downs = self.downs / self.cwl
+        tdpct = bps.tdpct(self.TDc, self.TDinc, self.NTD)
+        self.playerskillval = np.exp(self.cwl, (np.sqrt(interceptpc + passpc + tdpct))) / downs
 
-        # Classifing variable
-        playerclassfied = 0
+    def findtdpct(self):
+        return bps.tdpct(self.TDc, self.TDinc, self.NTD)
 
-        loopvar = 0
-        while loopvar + 1 <= self.teamsize:
-            playerclassfied = self.player.pxwinloss()
-            ranksum.append(playerclassfied)
-
-        tempvar = 0
-        for i in ranksum:
-            tempvar = i
-            if i < i + 1:
-                tempvar = i + 1
-                ranksum.append(i)
-                ranksum.pop(tempvar)
-            elif i > i + 1:
-                tempvar = i
-                ranksum.append(i + 1)
-                ranksum.pop(tempvar)
-            ranksum.append(tempvar)
-
-        return ranksum
-
-    def playerGameStats(self):
-        pass
-
+    def findintcpct(self):
+        return bps.intrcptps(self.cintercepts, self.incintercepts, self.tintercepts)
