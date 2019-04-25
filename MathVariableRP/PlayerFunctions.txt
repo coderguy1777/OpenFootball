@@ -1,0 +1,35 @@
+Basic Touchdown pct function:
+----------------------------------
+TD_C = Complete touchdowns.
+TD_inc = incomplete touchdowns.
+nTD = Total number of touch downs
+
+VTD_p = TD_c - TD_inc / nTD
+
+Where VTD_p is the valid touchdown percentage.
+----------------------------------
+Basic Intercept pct function:
+----------------------------------
+I_n^P = I_cn - I_n / I_Tn
+
+Where I_nP is the interception percentage
+----------------------------------
+Basic Weeks Left function:
+----------------------------------
+(Delta)wk_L = Twk - Cwk
+
+Where (Delta)wk_L is the weeks left
+in the season
+----------------------------------
+Basic Player Skill function:
+----------------------------------
+p_skill = (sqrt(I_n^p + P_c^p + VTD_p))^(Delta)wk_L/n_downs
+
+Where p_skill is a given indices for the rank of the player.
+----------------------------------
+Basic Pass pct Function:
+----------------------------------
+P_c^P = C_p - Inc_p / T_p
+
+where P_c^p is for completed pass percentage by the player.
+----------------------------------

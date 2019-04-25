@@ -217,3 +217,45 @@ teamvaluesAFC.append(teamvalueTexans)
 
 # Reading of Data for the Tennessee titans
 df14 = pd.read_csv("Data/AFCDB/AFCSouth/TheTennesseeTitans.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrostertitans = []
+for name in df14['Name']:
+    teamrostertitans.append(name)
+
+positionsTitans = []
+for pos14 in df['Position']:
+    positionsTitans.append(pos14)
+
+
+teamvalueTitans = "The Tennessee Titans"
+teamvaluesAFC.append(teamvalueTitans)
+
+# Reading of data for the Indianpolis colts
+
+df15 = pd.read_csv("Data/AFCDB/AFCSouth/TheIndianpolisColts.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterColts = []
+for name in df15['Name']:
+    teamrosterColts.append(name)
+
+positionsColts = []
+for pos15 in df15['Position']:
+    positionsColts.append(pos15)
+
+teamvalueColts = "The Indianpolis colts"
+teamvaluesAFC.append(teamvalueColts)
+
+# Reading of data for Jacksonville Jaguars.
+
+df16 = pd.read_csv("Data/AFCDB/AFCSouth/TheJacksonvilleJaguars.csv", encoding='latin-1', names=['Name', 'Position', 'Team', 'Position > 1'])
+teamrosterJaguars = []
+for name in df16['Name']:
+    teamrosterJaguars.append(name)
+
+positionsJaguars = []
+for pos16 in df16['Position']:
+    positionsJaguars.append(pos16)
+
+teamvalueJaguars = "The Jacksonville Jaguars"
+teamvaluesAFC.append(teamvalueJaguars)
+
+# End of reading of data for
+# all AFC teams within the AFC Division.

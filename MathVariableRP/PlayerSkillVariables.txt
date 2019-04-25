@@ -1,0 +1,25 @@
+Parameters for player variables:
+--------------------------------------
+n_downs = numbers of total downs
+
+(Delta)y_gained = yards gained by player
+
+(Delta)y_loss = yards lost by player
+
+I_n = Number of interceptions by player.
+
+I_incn = Number of failed interceptions by player
+
+I_cn = Number of interceptions completed by the player
+
+(Delta)wk_l = # of weeks left in the season
+
+C_wk = current week in season
+
+T_wk = weeks in season
+
+C_p = # of completed passes by player
+
+Inc_p = # of incomplete passes by the player
+
+2Pm = # of two point conversions made by player in question.

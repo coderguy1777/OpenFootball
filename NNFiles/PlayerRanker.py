@@ -4,7 +4,7 @@ import pandas as pd
 from NNFiles import BasePlayerSkills as bps
 
 class PlayerSkill:
-    def __init__(self, playername, downs, cintercepts, incintercepts, cpasses, incpasses, tpasses, tintercepts, cwk, cwl, TDc, TDinc, NTD):
+    def __init__(self, playername, downs, cintercepts, incintercepts, cpasses, incpasses, tpasses, tintercepts, cwk, cwl, tw, TDc, TDinc, NTD):
         self.playername = playername
         self.downs = downs
         self.cintercepts = cintercepts
@@ -18,6 +18,7 @@ class PlayerSkill:
         self.TDc = TDc
         self.TDinc = TDinc
         self.NTD = NTD
+        self.tw = tw
         self.playerskillval = 0
 
     def pskill(self):
@@ -32,3 +33,11 @@ class PlayerSkill:
 
     def findintcpct(self):
         return bps.intrcptps(self.cintercepts, self.incintercepts, self.tintercepts)
+
+    def wkl(self):
+        return bps.weeksleft(self.cwk, self.tw)
+
+    def passpct(self):
+        return bps.passpercent(self.cpasses, self.incpasses, self.tpasses)
+
+

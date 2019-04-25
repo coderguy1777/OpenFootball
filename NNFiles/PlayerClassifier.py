@@ -21,14 +21,13 @@ class PlayerWinClassifier:
         xw = 0
         xl = 0
         wlamount = []
-        playervar = self.draftyear
         for playerrvar in self.wlratioteam:
             if playerrvar == 'win':
-                xw += 1
                 wlamount.append('W')
+                xw += 1
             elif playerrvar == 'loss':
-                xl += 1
                 wlamount.append('L')
+                xl += 1
 
         # Sum of the tgame, where t and subscript game
         # represents the amount of games played by the team.
@@ -58,3 +57,8 @@ class PlayerWinClassifier:
         Deltatgame = len(deltawlamount)
         Deltapx = deltaxw - deltaxl / Deltatgame
         return Deltapx
+
+    def classified(self):
+        print(f"Player Name: {self.player}\nWin/Loss Ratio: {self.pxwinloss()}")
+        print('--------------------------------------------------------------------')
+        print(f"Player Name: {self.player}\nDelta Win/Loss Ratio: {self.deltapxwinloss()}")

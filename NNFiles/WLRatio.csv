@@ -5,3 +5,5 @@ loss,win
 win,loss
 loss,loss
 loss,loss
+win,win
+loss,win
